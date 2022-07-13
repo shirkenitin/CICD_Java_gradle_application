@@ -26,7 +26,7 @@ git branch: 'main', url: 'https://github.com/shirkenitin/CICD_Java_gradle_applic
                             sh './gradlew sonarqube'
                     }
 
-                    timeout(time: 1, unit: 'HOURS') {
+                    timeout(time: 2, unit: 'MINUTES') {
                       def qg = waitForQualityGate()
                       if (qg.status != 'OK') {
                            error "Pipeline aborted due to quality gate failure: ${qg.status}"
