@@ -3,7 +3,16 @@ pipeline{
     environment{
         VERSION = "${env.BUILD_ID}"
     }
+
     stages{
+       stage("SCM checkout"){
+        steps{
+git branch: 'main', url: 'https://github.com/shirkenitin/CICD_Java_gradle_application'
+        }
+       }
+
+    }
+   /* stages{
         stage("sonar quality check"){
             agent {
                 docker {
@@ -101,8 +110,6 @@ pipeline{
                      }
                 }
             }
-        }
-    }
-
-   
-}
+        
+    }*/
+ }
