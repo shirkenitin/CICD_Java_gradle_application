@@ -11,8 +11,8 @@ git branch: 'main', url: 'https://github.com/shirkenitin/CICD_Java_gradle_applic
         }
        }
 
-    }
-   /* stages{
+    
+    
         stage("sonar quality check"){
             agent {
                 docker {
@@ -21,7 +21,7 @@ git branch: 'main', url: 'https://github.com/shirkenitin/CICD_Java_gradle_applic
             }
             steps{
                 script{
-                    withSonarQubeEnv(credentialsId: 'sonar-token') {
+                    withSonarQubeEnv(credentialsId: 'Sonar') {
                             sh 'chmod +x gradlew'
                             sh './gradlew sonarqube'
                     }
@@ -36,7 +36,7 @@ git branch: 'main', url: 'https://github.com/shirkenitin/CICD_Java_gradle_applic
                 }  
             }
         }
-        stage("docker build & docker push"){
+       /* stage("docker build & docker push"){
             steps{
                 script{
                     withCredentials([string(credentialsId: 'docker_pass', variable: 'docker_password')]) {
@@ -111,5 +111,5 @@ git branch: 'main', url: 'https://github.com/shirkenitin/CICD_Java_gradle_applic
                 }
             }
         
-    }*/
+    */}
  }
